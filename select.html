@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+    <!-- <link rel="stylesheet" href="../../lib/z-tree/zTreeStyle.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../../lib/z-tree/jquery.ztree.core-3.5.js"></script>
+    <script src="../../lib/z-tree/jquery.ztree.excheck-3.5.js"></script>
+    <script src="../../lar-ui/lar-zTreeSelect/zTreeSelect.js"></script> -->
+    <!-- <link rel="stylesheet" href="demo.css" type="text/css"> -->
+    <link rel="stylesheet" href="zTreeStyle.css" type="text/css">
+    <script src="jquery-1.11.2.js"></script>
+    <script src="jquery.ztree.core-3.5.js"></script>
+    <script src="jquery.ztree.excheck-3.5.js"></script>
+    <!-- <script src="jquery.ztree.core.js"></script>
+    <script src="jquery.ztree.excheck.js"></script> -->
+
+    <script src="zTreeSelect.js"></script>
+
+    <title></title>
+</head>
+<body>
+    <!-- <div style="width:300px;height:30px;border:1px solid #ccc;cursor:pointer;" id="treeDemo" class="ztree"></div> -->
+    <div style="width:200px;height:28px;">
+        <!-- <input type="text" id="theSelect" readonly="readonly" style="height:28px;"> -->
+        <div id="theSelect" style="height:28px;width:200px;border:1px solid #ccc;"></div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        // var setting = {
+        //     check: {
+        //         enable: true,
+        //         chkboxType: {
+        //             "Y": "p",//关联
+        //             "N": "p"
+        //         }
+        //     },
+        //     data: {
+        //         simpleData: {
+        //             enable: true,
+        //             idKey: "dictCode",
+        //             pIdKey: "dictPcode"
+        //         },
+        //         check: {
+        //             chkDisabledInherit: true,
+        //             enable: true
+        //         },
+        //         key: {
+        //             name: "dictName"
+        //         }
+        //     },
+        //     view:{
+        //     },
+        //     callback: {
+        //         beforeCheck : function(treeId, treeNode) {
+        //             if (treeNode.isParent) {
+        //                 alert("请选择子节点！");
+        //                 return false;
+        //             }
+        //         },
+        //         onCheck: zTreeOnCheck
+        //     }
+        // };
+
+
+        // function zTreeOnCheck(event, treeId, treeNode){
+        //     var treeObj = $.fn.zTree.getZTreeObj("treeDemo"),
+        //     nodes = treeObj.getCheckedNodes(true);
+        //     console.log(nodes);
+        // }
+
+
+
+        var zNodes = [
+            {"dictCode":1,"dictPcode":0,"dictName":"根节点"},   
+            {"dictCode":11,"dictPcode":1,"dictName":"我是一级"},   
+            {"dictCode":12,"dictPcode":1,"dictName":"一级"},
+            {"dictCode":1111,"dictPcode":111,"dictName":"子元素"},
+            {"dictCode":1112,"dictPcode":111,"dictName":"我要上头条"},
+            {"dictCode":111,"dictPcode":11,"dictName":"我是二级"},
+            {"dictCode":112,"dictPcode":11,"dictName":"级别名称"},
+            {"dictCode":113,"dictPcode":11,"dictName":"选我"}
+        ];
+
+
+        var initData = [
+            {value:'子元素',codeId:1111,codeVal:''},
+            {value:'级别名称',codeId:112,codeVal:''}
+        ];
+
+
+
+        $('#theSelect').zTreeSelect({zNodes:zNodes, isMultiselect:false,initData:initData});
+        // $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+        
+    });
+</script>
+
+</html>
